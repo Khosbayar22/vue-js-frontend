@@ -7,6 +7,21 @@
     <title>Day 1</title>
 </head>
 <body>
-    
+    <div id="container">
+        <h1>Todo list:</h1> 
+        <input type="text" v-model="currentTodoItem">
+        <button @click="addItem">Add item</button>
+        <div v-if="list.length === 0" >No item.</div>
+        <ul v-else>
+            <li v-for="(todo, index) in list"> 
+                <div>
+                    <span v-if="isShow">{{ index + 1}}. {{ todo }}</span>
+                    <button @click="removeItem(index)">Delete</button>
+                </div>
+            </li>   
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
 </body>
 </html>
